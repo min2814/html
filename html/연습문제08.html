@@ -1,0 +1,37 @@
+<body>
+    <form action="http://ggoreb.com/http/post.jsp" method="post">
+        <input type="text" name="auth-key" value="1q2w3e4r" size="100">
+        <br>
+        <input type="file" id="files" name="files" multiple>
+        <br>
+        <input type="text" name="country_code" placeholder="123-45-678" pattern="[A-Za-z]{3}"
+            title="Three letter country code">
+        <select name="color">
+            <option value="red">빨강</option>
+            <option value="orange" selected>주황</option>
+        </select>
+        <br>
+        <textarea name="message" rows="10" cols="30">The cat was playing in the garden.</textarea>
+        <input type="submit" value="제출">
+        <button type="button" onclick="onclick=alert('hi');">Click me</button>
+
+        <p>오늘의 점심 메뉴 선택</p>
+        <input type="radio" id="a" name="lunch" value="a">
+        <label for="a">짜장</label><br>
+        <input type="radio" id="b" name="lunch" value="b">
+        <label for="b">짬뽕</label><br>
+        <input type="radio" id="c" name="lunch" value="c">
+        <label for="c">볶음밥</label>
+
+        <p>오늘의 점심 메뉴 선택</p>
+        <label>
+            <input type="radio" id="a" name="lunch" value="a"> 짜장
+        </label>
+        
+     
+        <label>
+            <input type="radio" id="b" name="lunch" value="b"> 볶음밥
+        </label>
+   
+    </form>
+</body>
