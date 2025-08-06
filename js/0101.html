@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<head></head>
+
+<body>
+    <p id="demo">text</p>
+    <button type="button" onclick="change()">change</button>
+    <button type="button" onclick="change2()">change2</button>
+    <script>
+        function 함수() {
+            location = "http://www.naver.com";
+        }
+        document.querySelector("#demo").addEventListener("click", 함수);
+        function change() {
+            document.querySelector("#demo").innerText = "<u>change</u>";
+
+            // alert(1);
+            // alert(12);
+            // console.log(12);
+            // document.write("dddddd");
+            // window.print();
+        }
+        function change2() {
+            document.querySelector("#demo").innerHTML = "체인지";
+            document.querySelector("body").style.backgroundColor = "red";
+        }
+    </script>
+</body>
+
+</html>
