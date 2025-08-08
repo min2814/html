@@ -1,0 +1,92 @@
+<body>
+    <script>
+        // # 함수명 is_odd
+        // # 함수 호출 예)
+        //1번
+        function is_odd(x) {
+            if (x % 2 == 1) {
+                return "홀수";
+            }
+            else {
+                return "짝수";
+            }
+        }
+        console.log(is_odd(3))
+        console.log(is_odd(4))
+
+        //2번
+        let sum = 0;
+        function total(x) {
+            const num = prompt("1이상 숫자 입력");
+            for (let i = 1; i <= num; i++) {
+                sum += i;
+            }
+            return sum;
+        }
+        console.log(total(10))
+
+        //3번
+        let avg = 0;
+        let sum2 = 0;
+        function calculator(args) {
+            for (let i = 0; i < args.length; i++) {
+                sum2 += parseInt(args[i]);
+            }
+            avg = sum2 / args.length;
+            // console.log(sum2);
+            // console.log(args.length);
+            // console.log(args);
+            return avg;
+        }
+
+        console.log(calculator([3, 7, 9, 11]));
+
+        //4번
+        //         1
+        //         1 + (1 + 2)
+        //         1 + (1 + 2) + (1 + 2 + 3)
+        //         1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 4)
+        // ⋮
+        //         1 + (1 + 2) + (1 + 2 + 3) + (1 + 2 + 3 + 4) +...+(1 +...+n)
+        let sum3 = 0;
+        function seq() {
+            const s = prompt("수열 몇번째");
+            for (let i = 1; i <= s; i++) {
+                for (let j = 1; j <= i; j++) {
+                    sum3 += j;
+                }
+            }
+            return sum3;
+        }
+        console.log(seq());
+
+        //5번
+        function string() {
+            const str = prompt("문자 작성");
+            if (str.length % 2 == 1) {
+                return str.substring(parseInt(str.length / 2), parseInt(str.length / 2) + 1);
+            }
+            else {
+                return str.substring(parseInt(str.length / 2) - 1, parseInt(str.length / 2) + 1);
+            }
+        }
+        console.log(string());
+
+        //6번
+        let word = "";
+        function pattern() {
+            const p = prompt("패턴 길이 입력");
+
+            for (let i = 1; i <= p; i++) {
+                if (i % 2 == 1) {
+                    word += "수";
+                }
+                else {
+                    word += "박";
+                }
+            }
+            return word;
+        }
+        console.log(pattern());
+    </script>
+</body>

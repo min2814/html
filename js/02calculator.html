@@ -39,9 +39,24 @@
             // 클릭된 div의 text를 h1에 추가
             btn.addEventListener('click', (event) => {
                 const text = event.target.innerHTML;
+
+                // 첫 숫자로 0을 누르면 보이지 않음
                 if (!(document.querySelector('h1').innerHTML == '' && text == '0')) {
                     document.querySelector('h1').innerHTML += text;
-                } // 첫 숫자로 0을 누르면 보이지 않음
+                }
+
+                // 3자리마다 천단위
+                document.querySelector('h1').innerHTML = document.querySelector('h1').innerHTML.replace(/,/g, '');
+                let result = '';
+                let count = 0;
+                for (let i = document.querySelector('h1').innerHTML.length - 1; i >= 0; i--) {
+                    result = document.querySelector('h1').innerHTML[i] + result;
+                    count++;
+                    if (count % 3 == 0 && i != 0) {
+                        result = ',' + result;
+                    }
+                }
+                document.querySelector('h1').innerHTML = result
                 console.log(text);
                 console.log(document.querySelector('h1').innerHTML);
                 console.log(document.querySelector('h1').innerHTML[3]);
@@ -50,11 +65,22 @@
         /* Back 버튼 기능 구현 */
         function back() {
             // 코드 작성
+            document.querySelector('h1').innerHTML = document.querySelector('h1').innerHTML.replace(/,/g, '');
             const back = document.querySelector("h1").innerHTML;
             // console.log(back);
             // console.log(back.length - 1);
             // console.log(back.substring(0, back.length - 1));
             document.querySelector("h1").innerHTML = back.substring(0, back.length - 1);
+            let result = '';
+            let count = 0;
+            for (let i = document.querySelector('h1').innerHTML.length - 1; i >= 0; i--) {
+                result = document.querySelector('h1').innerHTML[i] + result;
+                count++;
+                if (count % 3 == 0 && i != 0) {
+                    result = ',' + result;
+                }
+            }
+            document.querySelector('h1').innerHTML = result
         }
 
         //첫 숫자로 0을 누르면 보이지 않아야 됨

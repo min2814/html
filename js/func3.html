@@ -1,0 +1,11 @@
+<body>
+    <script>
+        const f2 = function (pos) {
+            console.log(pos);
+            const lat = pos.coords.latitude;
+            const lng = pos.coords.longitude;
+            console.log(lat, lng);
+        }
+        navigator.geolocation.getCurrentPosition(f2);
+    </script>
+</body>
