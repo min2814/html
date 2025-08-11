@@ -1,0 +1,26 @@
+<body>
+    <script>
+        function makeTimers() {
+            //setTimeout의 특성 때문에 4만 출력됨, 변수 하나만 참조
+            let count = 1;
+
+            for (; count <= 3; count++) {
+                setTimeout(function () {
+                    console.log(count); // 현재는 4만 출력됨  
+                }, count * 1000);
+            }
+
+            // for문 안에 변수 선언을 하면 반복 할 때마다 변수가 새로 생성됨
+
+            for (let i = 0; i < 3; i++) {
+                setTimeout(() => {
+                    console.log(i);
+                }, i * 1000);
+            }
+
+        }
+
+
+        makeTimers();
+    </script>
+</body>
