@@ -1,0 +1,12 @@
+<body>
+    <script>
+        let a = 192;
+        let b = 162;
+
+        function gcm(a, b) {
+            if (b == 0) return a;
+            return gcm(b, a % b);
+        }
+        console.log(gcm(a, b));
+    </script>
+</body>
