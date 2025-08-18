@@ -1,0 +1,21 @@
+<body>
+    <script>
+        // const data = fetch();
+        // console.log(data);
+
+        const promise = new Promise((resolve, reject) => {
+            console.log('작업중...');
+            setTimeout(() => {
+                resolve('작업완료');
+                // reject(new Error('응답없음'));
+            }, 2000);
+
+            promise
+                .then((value) => { // resolve
+                    console.log(value);
+                })
+
+        });
+        console.log(promise);
+    </script>
+</body>
