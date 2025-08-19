@@ -1,0 +1,28 @@
+<body>
+    <div id="result"></div>
+    <script>
+
+        const result = document.querySelector("#result");
+
+        function delay(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms))
+        }
+
+        async function eat() {
+            await delay(1000);
+            console.log('밥을 먹어요');
+            result.innerHTML += `<p> 밥을 먹어요</p>`;
+        };
+
+        async function wash() {
+            await delay(1000);
+            result.innerHTML += `<p> 설거지를 해요</p>`;
+        }
+
+        async function run() {
+            await eat();
+            await wash();
+        }
+        run();
+    </script>
+</body>

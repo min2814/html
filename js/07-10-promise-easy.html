@@ -1,0 +1,23 @@
+<body>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector("#result");
+        function eat() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    result.innerHTML += `<p> 밥을 먹어요</p>`;
+                    resolve();
+                }, 1000);
+            });
+        }
+        function wash() {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    result.innerHTML += `<p> 설거지를 해요</p>`;
+                    resolve();
+                }, 1000);
+            });
+        }
+        eat().then(wash);
+    </script>
+</body>
