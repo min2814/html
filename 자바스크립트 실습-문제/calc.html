@@ -85,12 +85,11 @@
       const s = document.querySelector('#stats');
       let total = 0;
       let avg = 0;
-      document.querySelector('#stats')
       people.forEach((v) => {
         total += v.age;
       })
       avg = total / people.length;
-      s.innerHTML = `평균나이 : ${avg}<br>`;
+      s.innerHTML = `평균 나이: ${avg}<br>`;
 
       // - 가장 나이가 많은 사람 찾기
       let max = 0;
@@ -102,7 +101,7 @@
           maxname = people[i].name;
         }
       }
-
+      console.log(max);
       s.innerHTML += `가장 나이가 많은 사람: ${maxname} (${max})`;
       // - #stats에 출력
     }
