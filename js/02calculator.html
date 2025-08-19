@@ -1,0 +1,89 @@
+<body>
+    <style>
+        .wrapper {
+            display: grid;
+            gap: 10px;
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 100px 100px 100px 100px;
+        }
+
+        div>div {
+            background-color: rgb(207, 232, 220);
+            border: 2px solid rgb(79, 185, 227);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #zero {
+            grid-column: 1 / 4;
+        }
+    </style>
+    <div class="wrapper">
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div id="zero">0</div>
+    </div>
+    <h1></h1>
+    <button onclick="back()">Back</button>
+
+    <script>
+        const btns = document.querySelectorAll('div > div');
+        for (const btn of btns) {
+            // 클릭된 div의 text를 h1에 추가
+            btn.addEventListener('click', (event) => {
+                const text = event.target.innerHTML;
+
+                // 첫 숫자로 0을 누르면 보이지 않음
+                if (!(document.querySelector('h1').innerHTML == '' && text == '0')) {
+                    document.querySelector('h1').innerHTML += text;
+                }
+
+                // 3자리마다 천단위
+                document.querySelector('h1').innerHTML = document.querySelector('h1').innerHTML.replace(/,/g, '');
+                let result = '';
+                let count = 0;
+                for (let i = document.querySelector('h1').innerHTML.length - 1; i >= 0; i--) {
+                    result = document.querySelector('h1').innerHTML[i] + result;
+                    count++;
+                    if (count % 3 == 0 && i != 0) {
+                        result = ',' + result;
+                    }
+                }
+                document.querySelector('h1').innerHTML = result
+                console.log(text);
+                console.log(document.querySelector('h1').innerHTML);
+                console.log(document.querySelector('h1').innerHTML[3]);
+            });
+        }
+        /* Back 버튼 기능 구현 */
+        function back() {
+            // 코드 작성
+            document.querySelector('h1').innerHTML = document.querySelector('h1').innerHTML.replace(/,/g, '');
+            const back = document.querySelector("h1").innerHTML;
+            // console.log(back);
+            // console.log(back.length - 1);
+            // console.log(back.substring(0, back.length - 1));
+            document.querySelector("h1").innerHTML = back.substring(0, back.length - 1);
+            let result = '';
+            let count = 0;
+            for (let i = document.querySelector('h1').innerHTML.length - 1; i >= 0; i--) {
+                result = document.querySelector('h1').innerHTML[i] + result;
+                count++;
+                if (count % 3 == 0 && i != 0) {
+                    result = ',' + result;
+                }
+            }
+            document.querySelector('h1').innerHTML = result
+        }
+
+        //첫 숫자로 0을 누르면 보이지 않아야 됨
+        // 3자리마다 통화표기법 ,(쉼표) 찍기
+    </script>
+</body>

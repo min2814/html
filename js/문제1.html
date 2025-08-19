@@ -1,0 +1,18 @@
+<body>
+    <button>확인</button>
+    <input type="text" name="userAddress">
+    <div id="result"></div>
+    <script>
+        const button = document.querySelector("button");
+        const input = document.querySelector("input");
+        const result = document.querySelector("#result");
+
+        button.addEventListener("click", () => {
+            input_value = input.value;
+            input_name = input.name;
+
+            result.innerHTML = input_value + input_name;
+        });
+
+    </script>
+</body>

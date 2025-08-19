@@ -1,0 +1,35 @@
+<body>
+    <div id="result"></div>
+    <script>
+        const result = document.querySelector("#result");
+        function eat(callback) {
+            setTimeout(() => {
+                result.innerHTML += `<p> 밥을 먹어요</p>`;
+                callback();
+            }, 1000);
+        }
+        function drink(callback) {
+            setTimeout(() => {
+                result.innerHTML += `<p> 물을 마셔요</p>`;
+                callback();
+            }, 1000);
+        }
+        function cleanTable(callback) {
+            setTimeout(() => {
+                result.innerHTML += `<p> 밥그릇을 치워요</p>`;
+                callback();
+            }, 1000);
+        }
+        // eat(drink(cleanTable));      // 물 먹 치
+
+        eat(() => {
+            drink(() => {
+                cleanTable(() => {
+                    result.innerHTML += "종료";
+                })
+            })
+        })                                      // 밥 물 치 
+
+
+    </script>
+</body>

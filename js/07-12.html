@@ -1,0 +1,17 @@
+<body>
+    <script>
+        const wait = new Promise((resolve) => {
+            setTimeout(() => {
+                resolve();
+            }, 1000);
+        });
+        wait().then(() => { })
+
+        setTimeout(() => {
+            console.log("1초 뒤 동작!");
+            setTimeout(() => {
+
+            }, 1000);
+        }, 1000);
+    </script>
+</body>

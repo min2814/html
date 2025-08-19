@@ -1,0 +1,17 @@
+<body>
+    <h1>제목</h1>
+    <h3 id="1">클릭 횟수 : 0</h3>
+</body>
+<script>
+    /* 마우스 드래그 방지 이벤트*/
+    document.body.onselectstart = () => false;
+    let count = 0;
+    const h = document.getElementById('1');
+    document.body.addEventListener('click', (e) => {
+        count++
+        console.log(count);
+        const a = e.target.closest('h1');
+        console.log(a);
+        document.querySelector('h3').textContent = `클릭 횟수 : ${count}`;
+    })
+</script>

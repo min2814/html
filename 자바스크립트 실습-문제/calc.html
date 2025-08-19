@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>연산/함수</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <nav class="container">
+    <a href="./index.html">홈</a>
+    <a class="active" href="./calc.html">연산/함수</a>
+    <a href="./users.html">사용자(fetch)</a>
+    <a href="./todos.html">할 일(localStorage)</a>
+    <a href="./prefs.html">설정(쿠키)</a>
+  </nav>
+
+  <main class="container">
+    <h2>연산</h2>
+    <div class="card">
+      <label>A: <input id="a" type="number" value="2"></label>
+      <label>B: <input id="b" type="number" value="3"></label>
+      <button onclick="showAddResult()">더하기</button>
+      <div id="addOut" class="list"></div>
+    </div>
+
+    <h3>통계</h3>
+    <div class="card">
+      <details open>
+        <summary><strong>배열 전체 (JSON 보기)</strong></summary>
+        <pre id="peopleRaw" style="white-space:pre-wrap; margin:8px 0;"></pre>
+      </details>
+
+      <div id="peopleCards" class="list" style="margin-top:8px;"></div>
+
+      <hr style="border:none; border-top:1px solid #e5e7eb; margin:12px 0;" />
+
+      <div id="stats" class="list"></div>
+    </div>
+  </main>
+
+  <script>
+    function showAddResult() {
+      // 코드 작성
+      // - A, B 합을 구해 #addOut에 출력 
+      const a = document.querySelector('#a');
+      const b = document.querySelector('#b');
+
+      let sum = 0;
+      sum = parseInt(a.value) + parseInt(b.value);
+      document.querySelector('#addOut').innerHTML = sum;
+    }
+
+    const people = [
+      { name: 'Lee', age: 20, job: 'Student' },
+      { name: 'Kim', age: 32, job: 'Designer' },
+      { name: 'Park', age: 26, job: 'Developer' },
+      { name: 'Choi', age: 41, job: 'Manager' },
+    ];
+
+    function renderPeopleInfo() {
+      document.querySelector('#peopleRaw').textContent =
+        JSON.stringify(people, null, 2);
+
+      // 코드 작성
+      // - 명단 출력
+      const p = document.querySelector('#peopleCards');
+      // console.log(p);
+      // console.log(people);
+      people.forEach((v) => {
+        const name = v.name;
+        const age = v.age;
+        const job = v.job;
+        p.innerHTML += `<div class="card">
+                        <strong>${name}</strong>
+                        <div class="small">age: ${age}</div>
+                        <div class="small">job: ${job}</div>
+                        </div>`
+      })
+
+      // 코드 작성
+      // - 평균 나이 구하기
+      const s = document.querySelector('#stats');
+      let total = 0;
+      let avg = 0;
+      document.querySelector('#stats')
+      people.forEach((v) => {
+        total += v.age;
+      })
+      avg = total / people.length;
+      s.innerHTML = `평균나이 : ${avg}<br>`;
+
+      // - 가장 나이가 많은 사람 찾기
+      let max = 0;
+      let maxname = '';
+
+      for (let i = 0; i < people.length; i++) {
+        if (max < people[i].age) {
+          max = people[i].age;
+          maxname = people[i].name;
+        }
+      }
+
+      s.innerHTML += `가장 나이가 많은 사람: ${maxname} (${max})`;
+      // - #stats에 출력
+    }
+
+    renderPeopleInfo();
+  </script>
+</body>
+
+</html>

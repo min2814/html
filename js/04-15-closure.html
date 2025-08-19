@@ -1,0 +1,20 @@
+<body>
+    <script>
+        function 초기화() {
+            let click = 0;
+            document.body.addEventListener('click', () => {
+                click++;
+                alert(click);
+            });
+        }
+        초기화();
+
+        function a() {
+            let 지역변수 = 0;
+            return () => { return ++지역변수; };
+        }
+        const 함수 = a();
+        console.log(함수());
+        console.log(함수());
+    </script>
+</body>

@@ -1,0 +1,26 @@
+<body>
+    <script>
+        while (true) {
+            const selected = [];
+            while (selected.length < 3) {
+                const num = parseInt(Math.random() * 45) + 1;
+                if (selected.indexOf(num) < 0) {
+                    selected.push(num);
+                }
+            }
+            selected.sort((a, b) => a - b);
+            const lotto = [1, 8, 16];
+            if (lotto == selected.toString) {
+                console.log('맞히기 성공');
+                break;
+
+            }
+            else {
+                console.log('실패');
+            }
+
+        }
+
+
+    </script>
+</body>

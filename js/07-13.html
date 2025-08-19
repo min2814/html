@@ -1,0 +1,18 @@
+<body>
+    <script>
+        const url = 'https://api.openweathermap.org/data/2.5/weather?lat=35.1728639953646&lon=129.130680529903&units=metric&appid=6edee3c2aa182bc44d18ccb204c98a31';
+        const data = fetch(url);
+        data.then((res) => {
+            return res.json();
+        }).then((res) => {
+            console.log(res);
+            const description = res.weather[0].description
+            const icon = res.weather[0].icon
+            const temp = res.main.temp
+            document.querySelector('body').innerHTML = `${description} / ${temp} / <img src='http://openweathermap.org/img/wn/${icon}@2x.png'>`;
+
+        })
+        // 지역
+        // 현재 위치
+    </script>
+</body>

@@ -1,0 +1,32 @@
+<body>
+    <script>
+        //1번
+        let fTemp = 122;
+        let cTemp = (fTemp - 32) / 1.8;
+
+        console.log(cTemp);
+
+        //2번
+        let num1 = 456;
+        let num2 = 111;
+
+        console.log(parseInt(num1 / 100) * 100, parseInt(num2 / 100) * 100);
+
+        //3번
+        let num = 12345;
+        let a = num % 10000;      //2345
+        let b = a % 1000;         //345
+        let c = b % 100;          //45
+        let d = c % 10;          //5
+
+        console.log(parseInt(num / 10000) + parseInt(a / 1000) + parseInt(b / 100) + parseInt(c / 10) + d);
+
+
+        let Snum = '12345';
+        let sum = 0;
+        for (let i = 0; i < Snum.length; i++) {
+            sum = sum + Number(Snum[i]);
+        }
+        console.log(sum);
+    </script>
+</body>

@@ -1,0 +1,20 @@
+<body>
+    <script>
+        const proxy = "https://cors-anywhere.herokuapp.com/";
+        const url = proxy + 'https://data.geoje.go.kr/rfcapi/rest/geojefood/getGeojefoodList?serviceKey=A2usf4txsthrBPXx7%2FckSjISrlOOF3DRCXlpwxFKcl1KPyvOOWSD%2FUhcapvCkM51AdZOieooIvkMdz2XQCt33w%3D%3D&pageSize=10&startPage=1';
+        const data = fetch(url, {
+            headers: {
+                "Accept": "application/json"
+            }
+        });
+        data.then((res) => {
+            return res.json();
+        }).then((res) => {
+            console.log(res);
+
+
+        })
+        // 지역
+        // 현재 위치
+    </script>
+</body>
