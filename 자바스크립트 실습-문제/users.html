@@ -1,11 +1,13 @@
 <!doctype html>
 <html lang="ko">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>사용자(fetch)</title>
   <link rel="stylesheet" href="./styles.css" />
 </head>
+
 <body>
   <nav class="container">
     <a href="./index.html">홈</a>
@@ -19,15 +21,58 @@
     <h2>사용자 목록</h2>
     <input id="q" placeholder="이름/이메일 검색" />
     <div id="list" class="list">
-      <div class="card">
-        <strong>이름 name</strong> <span class="small">이메일 email</span><br/>
-        <span class="small">주소 중 도시 address city</span>
-      </div>
     </div>
   </main>
 
   <script>
     // 코드 작성
+    // promise로도 해보기
+    const url = "https://jsonplaceholder.typicode.com/users";
+    const list = document.querySelector('#list');
+    const search = document.querySelector('#q');
+    let users = [];   //users 배열에 json파일 넣기
+
+    // 목록 렌더링 함수
+    function render(data) {
+      list.innerHTML = ""; // 초기화
+      data.forEach((v) => {
+        list.innerHTML += `
+        <div class="card">
+          <strong>${v.name}</strong> <span class="small">${v.email}</span><br/>
+          <span class="small">${v.address.city}</span>
+        </div>`;
+      });
+    }
+
+    // fetch로 데이터 가져오기
+    async function api() {
+      const res = await fetch(url);
+      const json = await res.json();
+      users = json;     // 전역에 저장
+      render(users);    // 처음에는 전체 목록 표시
+    }
+    api();
+
+    //검색 이벤트
+    search.addEventListener('input', (e) => {
+      const q = e.target.value.toLowerCase();
+      const filtered = users.filter((u) => {
+        return u.name.toLowerCase().includes(q) || u.email.toLowerCase().includes(q)
+      })
+      render(filtered);
+    })
+
+
+
+
+
+    // some, every, find, filter, map => (v,i,arr) 인자값
+    // reduce => (pv, cv, idx, arr) 인자값
+
+    // .then(res => res.json())
+    // .then(res => console.log(res.data))
+
+
     // - https://jsonplaceholder.typicode.com/users 데이터 가져오기
     // - #list에 출력
     // 출력 예시
@@ -38,7 +83,9 @@
 
     // 코드 작성
     // - 이름/이메일을 검색하면 해당 결과만 출력
-    
+
+
   </script>
 </body>
+
 </html>

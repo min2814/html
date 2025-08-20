@@ -82,18 +82,27 @@
 
       // 코드 작성
       // - 평균 나이 구하기
-
+      const s = document.querySelector('#stats');
+      let total = 0;
+      let avg = 0;
+      people.forEach((v) => {
+        total += v.age;
+      })
+      avg = total / people.length;
+      s.innerHTML = `평균 나이: ${avg}<br>`;
 
       // - 가장 나이가 많은 사람 찾기
       let max = 0;
-      const s = document.querySelector('#stats');
+      let maxname = '';
+
       for (let i = 0; i < people.length; i++) {
         if (max < people[i].age) {
           max = people[i].age;
+          maxname = people[i].name;
         }
       }
       console.log(max);
-      s.innerHTML = `가장 나이가 많은 사람: ${max}`;
+      s.innerHTML += `가장 나이가 많은 사람: ${maxname} (${max})`;
       // - #stats에 출력
     }
 
