@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -40,3 +41,8 @@
 .read-the-docs {
   color: #888;
 }
+=======
+body {
+  background-color: lightblue;
+}
+>>>>>>> bf0d9c5d7dbacf2833035d885f644af60eebcebf

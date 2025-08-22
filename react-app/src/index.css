@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -22,12 +23,15 @@ a:hover {
   color: #535bf2;
 }
 
+=======
+>>>>>>> bf0d9c5d7dbacf2833035d885f644af60eebcebf
 body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+<<<<<<< HEAD
 }
 
 h1 {
@@ -66,3 +70,7 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+=======
+  color: blue;
+}
+>>>>>>> bf0d9c5d7dbacf2833035d885f644af60eebcebf
