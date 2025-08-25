@@ -68,6 +68,7 @@ function Avatar(props) {
 function App() {
 
   const [list, setList] = useState(['HTML', 'CSS', 'JAVASCRIPT']);
+  const [color, setColor] = useState('red');
   return (
     <>
       {/* <Comment
@@ -78,11 +79,19 @@ function App() {
         text="유연상"
         date="2020-09-10"
       /> */}
-      <Header name="WEB2" world="click" />
+      <Header name="WEB2" world="click" color={color} />
       <button onClick={() => {
         list.push(1);
         const list2 = [...list];
         setList(list2);
+
+        //버튼 색 바꾸기
+        if (color == 'red') {
+          setColor('blue');
+        }
+        else if (color == 'blue') {
+          setColor('red');
+        }
       }}>추가</button>
       <Nav list={list} />
 

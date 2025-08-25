@@ -12,12 +12,22 @@ import FeatureCard from './FeatureCard.jsx';
 
 
 export default function App() {
+  const images = [
+    { src: 'http://ggoreb.com/images/food/a.png', alt: '과일' },
+    { src: 'http://ggoreb.com/images/food/b.png', alt: '과일' },
+    { src: 'http://ggoreb.com/images/food/c.png', alt: '과일' },
+    { src: 'http://ggoreb.com/images/food/d.png', alt: '과일' },
+    { src: 'http://ggoreb.com/images/food/e.png', alt: '과일' },
+    { src: 'http://ggoreb.com/images/food/f.png', alt: '과일' },
+  ];
+
+
   return (
     <div className="app">
       <Header />
       <Hero />
       <FeatureCard />
-      <Gallery />
+      <Gallery images={images} />
       <Footer />
     </div>
   );

@@ -17,7 +17,7 @@ function Header(props) {
                 }}></input>
                 <h1 style={
                     {
-                        color: "red",
+                        color: props.color,
                         backgroundColor: "yellow"
                     }
                 }
