@@ -1,6 +1,6 @@
-import style from './All.module.css'
+import style from './Hero.module.css';
 
-function Section() {
+function Hero() {
     return (
 
         <section className={style.hero} aria-labelledby="heroTitle">
@@ -18,4 +18,4 @@ function Section() {
 
 }
 
-export default Section;
+export default Hero;
