@@ -10,9 +10,10 @@ function Nav(props) {
   return (
     <nav>
       <ul>
-        <li><a href={props.href1}>{props.text1}</a></li>
-        <li><a href={props.href2}>{props.text2}</a></li>
-        <li><a href={props.href3}>{props.text3}</a></li>
+        {props.list.map((v, i) => {
+          return <li key={i}><a href="1.html">{v}</a></li>
+
+        })}
       </ul>
     </nav>
   )
@@ -67,17 +68,26 @@ function Avatar(props) {
 }
 
 function App() {
+
+  const [list, setList] = useState(['HTML', 'CSS', 'JAVASCRIPT']);
   return (
     <>
-      <Comment
+      {/* <Comment
         author={{
           name: "아바타",
           avatarUrl: "http://ggoreb.com/images/luffy.jpg"
         }}
         text="유연상"
         date="2020-09-10"
-      />
-      <Header name="WEB2" world="h" />
+      /> */}
+      <Header name="WEB2" world="click" />
+      <button onClick={() => {
+        list.push(1);
+        const list2 = [...list];
+        setList(list2);
+      }}>추가</button>
+      <Nav list={list} />
+
 
       {/* <Header name="WEB" world="World Wide Web!" />
       <Nav href1="1.html" href2="2.html" href3="3.html" text1="HTML" text2="CSS" text3="Javascript" />
@@ -86,3 +96,7 @@ function App() {
   )
 }
 export default App
+
+//추가 버튼을 클릭 할 때마다
+//   < Header > 의 제목 생상이 빨강 -> 파랑
+//   파랑 ->빨강
