@@ -1,23 +1,10 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import styleAvatar from './Avatar.module.css'
 import Header from './Header.jsx'
 
 
-function Nav(props) {
-  return (
-    <nav>
-      <ul>
-        {props.list.map((v, i) => {
-          return <li key={i}><a href="1.html">{v}</a></li>
 
-        })}
-      </ul>
-    </nav>
-  )
-}
 
 function Profile(props) {
   return (
@@ -67,10 +54,66 @@ function Avatar(props) {
   )
 }
 
+
+function Nav(props) {
+  const [index, setIndex] = useState(null);
+  const [content, setContent] = useState('');
+  return (
+    <nav>
+      <ul>
+        {
+          props.list.map((v, i) => {
+            return (
+              <li key={i}>
+                {
+                  i == index ?
+                    <>
+                      <input value={content} onChange={(e) => {
+                        setContent(e.target.value);
+                      }}></input>
+                      <button onClick={() => {
+                        setIndex(i)
+                        props.update(i, content);
+                      }}>저장</button>
+                    </> :
+
+                    <>
+                      <a href="1.html">{v}</a>
+                      <button onClick={() => {
+                        setIndex(i)
+                      }}>수정</button>
+
+                      <button onClick={() => {
+                        console.log('삭제 :' + i);
+                        props.deleteFunc(i);
+                      }}>삭제</button>
+
+                      {/* {
+                  update == false ? <a href="1.html">{v}</a> 
+                  : (index == i && <input value={v}></input>)
+                } */}
+
+                    </>
+                }
+              </li>
+            )
+          })}
+      </ul>
+    </nav>
+  )
+}
+
 function App() {
-  const [style, setStyle] = useState({ color: "red", backgroundColor: "yellow" });
+
   const [list, setList] = useState(['HTML', 'CSS', 'JAVASCRIPT']);
   const [color, setColor] = useState('red');
+  const [value, setValue] = useState('');
+
+  const updateFunc = (index, newvalue) => {
+    const newlist = [...list];
+    newlist[index] = newvalue;
+    setList(newlist);
+  }
 
   return (
     <>
@@ -83,13 +126,32 @@ function App() {
         date="2020-09-10"
       /> */}
       <Header name="WEB2" world="click" color={color} />
+      <input type='text' value={value} onChange={(e) => {
+        const value2 = e.target.value;
+        setValue(value2);
+      }}></input>
       <button onClick={() => {
-        list.push(1);
+        list.push(value);
+        console.log(list);
         const list2 = [...list];
         setList(list2);
 
+        //버튼 색 바꾸기
+        if (color == 'red') {
+          setColor('blue');
+        }
+        else if (color == 'blue') {
+          setColor('red');
+        }
       }}>추가</button>
-      <Nav list={list} />
+      <Nav list={list} deleteFunc={(i) => {
+        console.log(i);
+        const list2 = [...list];
+        // list2.splice(i, 1);        splice 쓰는 방법
+
+        const arr = list2.filter((_, index) => index != i);     //filter 쓰는 방법
+        setList(arr);
+      }} update={updateFunc} />
 
 
       {/* <Header name="WEB" world="World Wide Web!" />

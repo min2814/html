@@ -1,0 +1,83 @@
+<body>
+    <style>
+        .board {
+            display: grid;
+            gap: 2px;
+            width: 450px;
+            aspect-ratio: 1/ 1;
+            grid-template-columns: repeat(9, 1fr);
+            grid-template-rows: repeat(9, 1fr);
+            border: 2pxsolid #333;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+
+        .color-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: bold;
+            border-radius: 4px;
+        }
+
+        .board {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 100px 100px 100px 100px 100px 100px 100px 100px 100px;
+        }
+
+        .color-box.red {
+            grid-column: 2;
+            grid-row: 1;
+            background-color: red;
+        }
+
+        .color-box.orange {
+            grid-column: 5;
+            grid-row: 2;
+            background-color: orange;
+        }
+
+        .color-box.yellow {
+            grid-column: 9;
+            grid-row: 3;
+            background-color: yellow;
+        }
+
+        .color-box.green {
+            grid-column: 1;
+            grid-row: 5;
+            background-color: green;
+        }
+
+        .color-box.blue {
+            grid-column: 5;
+            grid-row: 5;
+            background-color: blue;
+        }
+
+        .color-box.navy {
+            grid-column: 4;
+            grid-row: 7;
+            background-color: navy;
+        }
+
+        .color-box.purple {
+            grid-column: 7;
+            grid-row: 9;
+            background-color: purple;
+        }
+    </style>
+    <div class="board">
+        <div class="color-box red">빨<br>(1, 2)</div>
+        <div class="color-box orange">주<br>(2, 5)</div>
+        <div class="color-box yellow">노<br>(3, 9)</div>
+        <div class="color-box green">초<br>(5, 1)</div>
+        <div class="color-box blue">파<br>(5, 5)</div>
+        <div class="color-box navy">남<br>(7, 4)</div>
+        <div class="color-box purple">보<br>(9, 7)
+        </div>
+    </div>
+</body>

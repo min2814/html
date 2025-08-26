@@ -1,0 +1,23 @@
+.gallery {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.thumb {
+    aspect-ratio: 16/10;
+    border-radius: 16px;
+    border: 1px solid #243158;
+    background: linear-gradient(135deg, #152247, #0e162f);
+    position: relative;
+    overflow: hidden;
+}
+
+.thumb::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: conic-gradient(from 120deg at 0% 0%, transparent, rgba(122, 162, 255, .15), transparent 45%);
+    mix-blend-mode: screen;
+    pointer-events: none;
+}

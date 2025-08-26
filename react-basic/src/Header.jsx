@@ -8,7 +8,6 @@ const style = {
 function Header(props) {
     const [state, setState] = useState(0);
     const [input, setInput] = useState('');
-    console.log(props)
     return (
         <>
             <header>
@@ -18,7 +17,7 @@ function Header(props) {
                 }}></input>
                 <h1 style={
                     {
-                        color: props.style,
+                        color: props.color,
                         backgroundColor: "yellow"
                     }
                 }

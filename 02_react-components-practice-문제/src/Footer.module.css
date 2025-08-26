@@ -1,0 +1,15 @@
+.footer {
+    margin-top: 28px;
+    padding: 18px;
+    text-align: center;
+    color: var(--muted);
+    border: 1px solid #1c2546;
+    border-radius: 16px;
+    background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+    box-shadow: var(--shadow);
+}
+
+small.mono {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    letter-spacing: .2px;
+}

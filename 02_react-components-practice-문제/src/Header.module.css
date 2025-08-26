@@ -1,0 +1,48 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 22px;
+    background: linear-gradient(180deg, var(--panel) 0%, var(--panel-2) 100%);
+    border: 1px solid #1c2546;
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    letter-spacing: .2px;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+.title {
+    font-size: 18px;
+}
+
+.nav {
+    display: flex;
+    gap: 14px;
+}
+
+.nav a {
+    color: var(--muted);
+    text-decoration: none;
+    border: 1px solid #263158;
+    padding: 8px 12px;
+    border-radius: 10px;
+}
+
+.nav a:hover {
+    color: var(--text);
+    border-color: var(--accent);
+}
