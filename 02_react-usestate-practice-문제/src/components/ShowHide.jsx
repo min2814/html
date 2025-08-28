@@ -1,6 +1,9 @@
+import { useState } from "react"
+
 export default function ShowHide() {
 
-  {/* TODO: visible이라는 boolean 상태를 만들고 초기값은 true로 설정하세요. */}
+  {/* TODO: visible이라는 boolean 상태를 만들고 초기값은 true로 설정하세요. */ }
+  const [visible, setVisivle] = useState(true);
 
   return (
     <section>
@@ -12,12 +15,19 @@ export default function ShowHide() {
           1) visible이라는 boolean 상태를 만들고 초기값은 true로 설정하세요. 
           2) visible 상태에 따라 버튼 텍스트를 '숨기기' 또는 '보이기'로 표시하세요.
         */}
-        <button>
-          숨기기 / 보이기
-        </button>
+        {
+          visible ? <button onClick={() => {
+            setVisivle(false)
+          }}> 숨기기 </button> : <button onClick={() => {
+            setVisivle(true)
+          }}> 보이기 </button>
+        }
+
 
       </div>
-      
+      {
+        visible ? <p style={{ marginTop: 8 }}>Hello React!</p> : <p className="muted" style={{ marginTop: 8 }}>숨김 상태입니다.</p>
+      }
       {/* 
           TODO: 
           visible이 true일 때는 "Hello React!"를
