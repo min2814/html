@@ -1,14 +1,42 @@
 import './App.css';
 import styles from './App.module.css';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useMemo, useRef } from 'react';
 
 function Counter() {
   const [count, setCount] = useState(0);
   const [color, setColor] = useState('red');
+  const h1 = useRef();
+  const value = useRef(0);
+
+  const factorial = (n) => {
+    if (n == 0) {
+      return 0;
+    } else if (n == 1) {
+      return 1;
+    } else {
+      return factorial(n - 1) * n
+    }
+  }
+  // const no_memo = () => {
+  //   console.log("factorial 연산");
+  //   let result = factorial(count);
+  //   return result;
+  // };
+
+  const memo = useMemo(() => {
+    console.log("factorial 연산");
+    let result = factorial(count);
+    return result;
+  }, [count]);
 
 
   const onClick2 = () => {
     setColor('blue');
+    h1.current.style.backgroundColor = "yellow";
+    console.log(value);
+
+    setCount(count + 1);
+    value.current += 1;
   }
 
 
@@ -32,10 +60,13 @@ function Counter() {
   return (
     <div>
       <h1>{count}</h1>
+      <h1 ref={h1}>팩토리얼 연산 결과: {memo}</h1>
       <button onClick={onClick2}>Click</button>
     </div>
   )
 }
+
+
 //이야 컴공 ~
 function App() {
   const [toc, setToc] = useState([]);
