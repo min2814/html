@@ -25,7 +25,7 @@ function Scissors(props) {
     <div className={styles.control}>
       <img
         src="http://ggoreb.com/images/react/scissors.png"
-        onClick={() => props.change(1)}
+        onClick={() => props.onSelect(0)}
         alt="scissors"
       />
     </div>
@@ -37,7 +37,7 @@ function Rock(props) {
     <div className={styles.control}>
       <img
         src="http://ggoreb.com/images/react/rock.png"
-        onClick={() => props.change(2)}
+        onClick={() => props.onSelect(1)}
         alt="rock"
       />
     </div>
@@ -49,7 +49,7 @@ function Paper(props) {
     <div className={styles.control}>
       <img
         src="http://ggoreb.com/images/react/paper.png"
-        onClick={() => props.change(3)}
+        onClick={() => props.onSelect(2)}
         alt="paper"
       />
     </div>
@@ -74,19 +74,24 @@ function App() {
   const [com, setCom] = useState(null);
   const [result, setResult] = useState("선택해주세요");
 
-  const handlePlayerChoice = (choice) => {
-    const computer = Math.floor(Math.random() * 3) + 1; // 1~3
-    setPlayer(choice);
-    setCom(computer);
-    setResult(judge(choice, computer));
-  };
+  function onSelect(n) {
+    const com = parseInt(Math.random() * 3);
+    if ((n + 1) % 3 == com) {        // 사용자 패
+
+    } else if (n == com) {           // 무승부
+
+    } else {                         // 사용자 승
+
+    }
+
+  }
 
   return (
     <>
       <Title />
-      <Scissors change={handlePlayerChoice} />
-      <Rock change={handlePlayerChoice} />
-      <Paper change={handlePlayerChoice} />
+      <Scissors onSelect={onSelect} />
+      <Rock onSelect={onSelect} />
+      <Paper onSelect={onSelect} />
       <Result player={player} com={com} result={result} />
     </>
   );
