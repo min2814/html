@@ -25,7 +25,7 @@ function UserList() {
     user();
   }, [])
 
-
+  
   return (
     <div style={styles.container}>
       <h2 style={styles.title}>User Data</h2>
